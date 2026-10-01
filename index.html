@@ -3,17 +3,207 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Mi sitio web</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pepsi - Siente el Sabor Máximo | Sitio Oficial</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts (Outfit) -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Estilos Personalizados Pepsi -->
+    <link rel="stylesheet" href="CSS/estilo.css">
 </head>
 
 <body>
-    <h1>Versión de desarrollogit add .</h1>
 
-    <p>Proyecto desarrollado en Windows.</p>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-pepsi fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-white" href="#">
+                <!-- Pepsi Globe SVG Icon -->
+                <svg class="pepsi-logo-svg" viewBox="0 0 100 100" width="40" height="40">
+                    <circle cx="50" cy="50" r="48" fill="#005CB4" />
+                    <path d="M 4 50 A 46 46 0 0 1 96 50 C 70 75 30 25 4 50 Z" fill="#FFFFFF" />
+                    <path d="M 4 50 C 30 25 70 75 96 50 A 46 46 0 0 1 4 50 Z" fill="#E32934" />
+                </svg>
+                PEPSI
+            </a>
+            <button class="navbar-toggler navbar-dark border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sabores">Sabores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#despliegue">Desplegar en Servidor</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button onclick="saludar()" class="btn btn-pepsi-buy shadow">
+                            <i class="bi bi-cart3 me-1"></i> Comprar Ahora
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <button onclick="saludar()">Saludar</button>
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero-section">
+        <div class="hero-bg-glow"></div>
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6">
+                    <span class="badge-pepsi d-inline-block mb-3">
+                        <i class="bi bi-lightning-charge-fill me-1"></i> Sabor sin Límites
+                    </span>
+                    <h1 class="hero-title mb-3">
+                        THIRST FOR <span>MORE</span>
+                    </h1>
+                    <p class="hero-subtitle mb-4" id="flavor-desc">
+                        Descubre la frescura incomparable de Pepsi. Un estallido efervescente de sabor supremo diseñado para quienes siempre van por más.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 align-items-center mb-4">
+                        <button onclick="saludar()" class="btn btn-pepsi-buy btn-lg px-4 py-3">
+                            <i class="bi bi-fire me-2"></i> Probar Ahora
+                        </button>
+                        <a href="#sabores" class="btn btn-outline-light btn-lg rounded-pill px-4 py-3 border-2">
+                            Ver Galería de Sabores
+                        </a>
+                    </div>
+                    <!-- Selector de Sabores en vivo -->
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="text-white-50 small fw-bold">CAMBIAR EDICIÓN:</span>
+                        <div class="flavor-picker">
+                            <button class="flavor-btn flavor-btn-original active" title="Pepsi Original"
+                                onclick="switchFlavor('original', this)"></button>
+                            <button class="flavor-btn flavor-btn-zero" title="Pepsi Zero Sugar"
+                                onclick="switchFlavor('zero', this)"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-product-container">
+                    <img id="hero-product" src="img/pepsi.jpg" alt="Pepsi Can Original" class="hero-product-img img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- SABORES SECTION -->
+    <section id="sabores" class="py-5 bg-black">
+        <div class="container py-4">
+            <div class="text-center max-w-700 mx-auto mb-5">
+                <h2 class="display-5 fw-bold text-white mb-2">NUESTROS SABORES</h2>
+                <p class="text-white-50">Elige la versión perfecta para recargar tu energía en cualquier momento.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Pepsi Original -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="card-pepsi h-100">
+                        <img src="img/pepsi.jpg" class="card-pepsi-img" alt="Pepsi Original">
+                        <span class="badge bg-primary mb-2">Edición Clásica</span>
+                        <h3 class="h4 fw-bold text-white">Pepsi Original</h3>
+                        <p class="text-white-50">El equilibrio legendario de caramelo, cítrico y burbujas intensas.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-auto pt-3">
+                            <span class="fw-bold text-white fs-5">$1.50 USD</span>
+                            <button onclick="saludar()" class="btn btn-sm btn-pepsi-buy">Pedir</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pepsi Zero Sugar -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="card-pepsi h-100">
+                        <img src="img/pepsi_zero.jpg" class="card-pepsi-img" alt="Pepsi Zero Sugar">
+                        <span class="badge bg-danger mb-2">0% Azúcar | Max Sabor</span>
+                        <h3 class="h4 fw-bold text-white">Pepsi Zero Sugar</h3>
+                        <p class="text-white-50">Toda la potencia e intensidad de sabor, sin una sola caloría.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-auto pt-3">
+                            <span class="fw-bold text-white fs-5">$1.50 USD</span>
+                            <button onclick="saludar()" class="btn btn-sm btn-pepsi-buy">Pedir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCIA / MUSICA -->
+    <section id="experiencia" class="py-5">
+        <div class="container py-4">
+            <div class="experience-banner">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <span class="badge bg-white text-dark fw-bold mb-3 px-3 py-2 rounded-pill">PEPSI MUSIC LIVE</span>
+                        <h2 class="display-5 fw-bold text-white mb-3">VIVE LA MÚSICA A MÁXIMO VOLUMEN</h2>
+                        <p class="text-white-50 lead mb-4">Escucha nuestras playlists exclusivas en Spotify y participa por pases VIP a los mejores festivales del año.</p>
+                        <button onclick="saludar()" class="btn btn-light btn-lg rounded-pill fw-bold text-primary">
+                            <i class="bi bi-spotify text-success me-2"></i> Escuchar Playlist
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: DESPLEGAR EN AZURE / SERVIDOR -->
+    <section id="despliegue" class="py-5 bg-dark border-top border-secondary border-opacity-25">
+        <div class="container py-3">
+            <div class="row align-items-center">
+                <div class="col-lg-12 text-center mb-4">
+                    <h2 class="h3 fw-bold text-white mb-2">🚀 ¿Cómo desplegar esta página en tu Servidor Linux (Azure)?</h2>
+                    <p class="text-white-50">Sigue estos 3 simples comandos desde tu consola para subir y publicar esta web de Pepsi:</p>
+                </div>
+                <div class="col-lg-10 mx-auto">
+                    <div class="bg-black p-4 rounded-4 border border-secondary border-opacity-50">
+                        <h5 class="text-info fw-bold mb-3"><i class="bi bi-terminal me-2"></i>1. Sube los cambios a tu GitHub (en Windows):</h5>
+                        <pre class="bg-dark text-success p-3 rounded mb-4"><code>git add .
+git commit -m "Creación de landing page oficial de Pepsi con Bootstrap"
+git push origin main</code></pre>
+
+                        <h5 class="text-info fw-bold mb-3"><i class="bi bi-cloud-arrow-down me-2"></i>2. En la terminal SSH de tu Servidor en Azure, clona o copia los archivos a Apache:</h5>
+                        <pre class="bg-dark text-warning p-3 rounded mb-0"><code># Clonar tu repositorio en el directorio web de Apache:
+sudo rm -rf /var/www/html/*
+sudo git clone https://github.com/Zentsventh/mi-sitio.git /var/www/html/</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row gy-4 align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <a class="navbar-brand d-inline-flex align-items-center gap-2 fw-bold text-white mb-2" href="#">
+                        <svg class="pepsi-logo-svg" viewBox="0 0 100 100" width="30" height="30">
+                            <circle cx="50" cy="50" r="48" fill="#005CB4" />
+                            <path d="M 4 50 A 46 46 0 0 1 96 50 C 70 75 30 25 4 50 Z" fill="#FFFFFF" />
+                            <path d="M 4 50 C 30 25 70 75 96 50 A 46 46 0 0 1 4 50 Z" fill="#E32934" />
+                        </svg>
+                        PEPSI CO.
+                    </a>
+                    <p class="text-white-50 small mb-0">&copy; 2026 PepsiCo Inc. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="d-flex gap-3 justify-content-center justify-content-md-end">
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- App Custom JS -->
     <script src="js/app.js"></script>
 </body>
 
